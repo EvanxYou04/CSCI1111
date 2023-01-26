@@ -2,6 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    long num1 = 1;
-    printf("%ld", sizeof(num1));
+    float num1 = 1.0;
+    printf("%.3f", num1);
 }
