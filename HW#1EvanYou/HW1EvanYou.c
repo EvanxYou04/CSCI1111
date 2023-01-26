@@ -1,5 +1,5 @@
 //
-//  main.c
+//  HW1EvanYou.c
 //  HW#1EvanYou
 //
 //  Created by Evan You on 1/9/23.
@@ -13,6 +13,7 @@ int main(int argc, const char * argv[]) {
     printf("Evan");
     printf(" You\n");
     
+    return 0;
 }
 /*
  Output:
