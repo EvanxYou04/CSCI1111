@@ -4,7 +4,8 @@
 #define LENGTH 50
 #define INCH_PER_FEET 12
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
     int height,feet,inches;
     int count = 0; 
     char firstName[LENGTH];
