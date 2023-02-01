@@ -15,9 +15,15 @@ int main(int argc, char *argv[])
     printf(PROMPT);
     while (scanf("%s%i", firstName, &height)>1)
     {
-        feet = height / INCH_PER_FEET;
-        inches = height % INCH_PER_FEET;
-        printf("%s's height is %d feet %d inches.\n", firstName, feet, inches);
+
+        feet = height / INCH_PER_FEET; //converts inches to feets
+        inches = height % INCH_PER_FEET; //remainder 
+        if (firstName[strlen(firstName)-1]== 's'){
+            printf("%s' height is %d feet %d inches.\n", firstName, feet, inches);
+        }
+        else{
+            printf("%s's height is %d feet %d inches.\n", firstName, feet, inches);
+        }
         count++;
         printf(PROMPT);
     }
@@ -31,8 +37,8 @@ Output:
 Evan You Homework#4.
 Enter your first name and your height in inches(q to exit): Evan 67
 Evan's height is 5 feet 7 inches.
-Enter your first name and your height in inches(q to exit): Lindsay 63
-Lindsay's height is 5 feet 3 inches.
+Enter your first name and your height in inches(q to exit): Thomas 70
+Thomas' height is 5 feet 10 inches.
 Enter your first name and your height in inches(q to exit): q q
 Done! Entered 2 sets of name(s) and height(s).
 
