@@ -12,9 +12,8 @@ int main(int argc, char *argv[])
     while((scanf("%d", &fact) > 0  && fact < 21))
     {
         n = 1;
-        for (int i = 1; i<fact; i++){
-            printf("n = %llu\n", n);
-            n += i*n;
+        for (int i = 1; i<=fact; i++){
+            n = i*n;
         }
         printf("%2d! = %llu\n",fact, n);
         printf(PROMPT);
