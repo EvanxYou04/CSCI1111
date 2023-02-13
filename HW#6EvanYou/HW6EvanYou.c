@@ -9,21 +9,18 @@ unsigned long long Factorial(unsigned int n);
 
 int main(void) {
     int nums[MAX], facts[MAX]; 
-    int status = 1, nFacts;
+    int nFacts;
     printf("HW#6 Evan You\n");
     printf(PROMPT);
     
-    for (int index = 0; index < MAX && status; index++)
+    for (int index = 0; index < MAX && scanf("%d", &nums[index]); index++)
     {
-        status = scanf("%d", &nums[index]);
-        nFacts = index + 1;
+        nFacts = index;
     }
     printf("All integer(s) sucessfully read.\n");
-    // printf("nFacts = %d\n", nFacts);
-    for (int index = 0; index < nFacts; index++)
-        printf("%4d", nums[index]);
+    for (int index = 0; index <= nFacts; index++)
+        printf("%-10d %-10llu\n", nums[index], Factorial(nums[index]));
     printf("\n");
-
 
     return 0;
 }
