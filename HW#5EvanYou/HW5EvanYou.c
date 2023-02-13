@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     int fact;
-    unsigned long long n = 1;
+    unsigned long long n;
     printf("HW#05EvanYou\n");
     printf(PROMPT);
     while((scanf("%d", &fact) > 0  && fact < 21))
