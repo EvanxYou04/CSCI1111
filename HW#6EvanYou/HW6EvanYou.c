@@ -10,7 +10,6 @@ unsigned long long Factorial(unsigned int n);
 int main(void) {
     int nums[MAX], facts[MAX]; 
     int status = 1, nFacts;
-    unsigned n;
     printf("HW#6 Evan You\n");
     printf(PROMPT);
     
