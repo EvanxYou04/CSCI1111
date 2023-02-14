@@ -10,6 +10,7 @@ unsigned long long Factorial(unsigned int n);
 int main(void) {
     int nums[MAX], facts[MAX]; 
     int nFacts;
+    unsigned short nMax = USHRT_MAX, i=1;
     printf("HW#6 Evan You\n");
     printf(PROMPT);
     
@@ -21,6 +22,12 @@ int main(void) {
     for (int index = 0; index <= nFacts; index++)
         printf("%-10d %-10llu\n", nums[index], Factorial(nums[index]));
     printf("\n");
+
+        while (nMax > 1)
+    {
+        nMax /= ++i;
+    }
+    printf("The highest n for largest possible unsigned short value of n! is:%hu\n", i);
 
     return 0;
 }
