@@ -20,7 +20,9 @@ int main(void) {
     }
     printf("All integer(s) sucessfully read.\n");
     for (int index = 0; index <= nFacts; index++)
+    {
         printf("%-10d %-10llu\n", nums[index], Factorial(nums[index]));
+    }
     printf("\n");
 
         while (nMax > 1)
