@@ -29,7 +29,7 @@ int main(void) {
     {
         nMax /= ++i;
     }
-    printf("The highest n for largest possible unsigned short value of n! is:%hu\n", i);
+    printf("The highest n for largest possible unsigned short value of n! is: %hu\n", i);
 
     return 0;
 }
@@ -41,3 +41,20 @@ unsigned long long Factorial(unsigned int n){
     }
     return fact;
 }
+
+
+/*
+Output: 
+HW#6 Evan You
+Enter an integer for n! Enter up to 10 values! (Enter q to exit):5
+7
+8
+q
+All integer(s) sucessfully read.
+5          120       
+7          5040      
+8          40320     
+
+The highest n for largest possible unsigned short value of n! is: 8
+
+*/
