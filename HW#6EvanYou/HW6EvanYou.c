@@ -8,9 +8,9 @@
 unsigned long long Factorial(unsigned int n);
 
 int main(void) {
-    int nums[MAX], facts[MAX]; 
-    int nFacts;
-    unsigned short nMax = USHRT_MAX, i=1;
+    int nums[MAX], facts[MAX]; //integer array to store n! and n
+    int nFacts; //count number of input
+    unsigned short nMax = USHRT_MAX, i=1; 
     printf("HW#6 Evan You\n");
     printf(PROMPT);
     
@@ -21,7 +21,7 @@ int main(void) {
     printf("All integer(s) sucessfully read.\n");
     for (int index = 0; index <= nFacts; index++)
     {
-        printf("%-10d %-10llu\n", nums[index], Factorial(nums[index]));
+        printf("%-10d %-10llu\n", nums[index], Factorial(nums[index])); //read out formatted 
     }
     printf("\n");
 
@@ -40,7 +40,7 @@ unsigned long long Factorial(unsigned int n){
         fact *= i;
     }
     return fact;
-}
+}//factorial function 
 
 
 /*
