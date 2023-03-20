@@ -17,7 +17,6 @@ int main(void)
 {
     printf("HW#8 Evan You\n");
     double array1[NSIZE1], array2[NSIZE2]; //declare arrays 
-    int count;
     srand(time(NULL));  //seed psudeo-random number generator with time 
     FillArray(array1, NSIZE1);
     FillArray(array2, NSIZE2);
