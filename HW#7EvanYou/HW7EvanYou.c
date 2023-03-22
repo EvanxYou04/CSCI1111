@@ -3,30 +3,42 @@
 #include <ctype.h>
 
 //Function Prototypes
-char menuPrompt(void);
+void menuPrompt(void);
 char get_first(void);
-double multiply(double i, double n);
-double divide(double i, double n);
-void add(void);
-double subtract(double i, double n);
+float getFloat(int num);
+void clearLine(void);
+
 
 
 int main(void)
 {
     printf("HW#7 by Evan You\n");
     int choice;
+    float x,y;
     menuPrompt();
     while ((choice = get_first()) != 'q')
     {
         switch (choice)
         {
-        case 'a': printf("addition in progress.\n");
+        case 'a':   
+            x = getFloat(1);
+            y = getFloat(2);
+            printf("%g + %g = %g " , x , y , x+y);
             break;
-        case 'b': printf("subtraction in progress.\n");
+        case 's':             
+            x = getFloat(1);
+            y = getFloat(2);
+            printf("%g - %g = %g " , x , y , x-y);
             break;
-        case 'c': printf("multiplication in progress.\n");
+        case 'm': 
+            x = getFloat(1);
+            y = getFloat(2);
+            printf("%g * %g = %g " , x , y , x*y);
             break;
-        case 'd': printf("division in progress.\n");
+        case 'd': 
+            x = getFloat(1);
+            y = getFloat(2);
+            printf("%g / %g = %g " , x , y , x/y);
             break;
         default: printf("PROGRAM ERROR\n");
             break;
@@ -38,19 +50,24 @@ int main(void)
     return 0;
 }
 
+void clearLine(void)
+{
+    while((getchar()) != '\n') ;
+    
+}
+
 //function definition
 char get_first()
 {
     int ch;
     
     ch = tolower(getchar());
-    while ( getchar() != '\n')
-        continue;
+  //  clearLine();
     return ch;
 
 
 }
-char menuPrompt(void)
+void menuPrompt(void)
 {
     int ch;
     //menu
@@ -58,24 +75,20 @@ char menuPrompt(void)
     printf("a.addition              s.subtraction\n");
     printf("m.multiplication        d.division\n");
     printf("q.quit                             \n");
-    // ch = get_first();
-    // while ( (ch < 'a' || ch > 'd') && ch != 'q') 
-    // {
-    //     printf("Please respond with a, b, c, or q.\n");
-    //     ch = get_first(); 
-    // }
-    // return ch;
 }
-void add(void)
+
+float getFloat(int num)
 {
-    int num1, num2, sum;
-    printf("Enter integer one: ");
-    scanf("%d", &num1);
-    putchar('\n');
-    printf("Enter number two:");
-    scanf("%d", &num2);
-    putchar('\n');
-    sum = num1 + num2;
-    printf("%d + %d = %d",num1, num2, sum);
-    
+    int ch;
+    float flt;
+    if (num == 1) printf("Enter the 1st floating point value: ");
+    else printf("Enter the 2nd floating point value: ");
+    while (scanf("%f",&flt)==0)
+    {
+        while ( (ch = getchar()) != '\n') putchar(ch);
+        printf(" is not a number. Please try again\n");
+    }
+    clearLine();
+    return flt;
+
 }

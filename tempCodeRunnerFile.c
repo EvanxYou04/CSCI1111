@@ -1,1 +1,1 @@
-rintf("%hu\n", i);
+(scanf("%f",&Flt)==0

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20BEC429296CB103003B26E9 /* HW1EvanYou.c in Sources */ = {isa = PBXBuildFile; fileRef = 20BEC428296CB103003B26E9 /* HW1EvanYou.c */; };
+		20F5CD3D29CA9C4C0075A125 /* inputBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 20F5CD3C29CA9C4C0075A125 /* inputBuffer.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		20BEC425296CB103003B26E9 /* HWEvanYou */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HWEvanYou; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BEC428296CB103003B26E9 /* HW1EvanYou.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = HW1EvanYou.c; sourceTree = "<group>"; };
+		20F5CD3B29CA9C4C0075A125 /* inputBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inputBuffer.h; sourceTree = "<group>"; };
+		20F5CD3C29CA9C4C0075A125 /* inputBuffer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = inputBuffer.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,8 @@
 		20BEC41C296CB103003B26E9 = {
 			isa = PBXGroup;
 			children = (
+				20F5CD3B29CA9C4C0075A125 /* inputBuffer.h */,
+				20F5CD3C29CA9C4C0075A125 /* inputBuffer.c */,
 				20BEC427296CB103003B26E9 /* HW#1EvanYou */,
 				20BEC426296CB103003B26E9 /* Products */,
 			);
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20F5CD3D29CA9C4C0075A125 /* inputBuffer.c in Sources */,
 				20BEC429296CB103003B26E9 /* HW1EvanYou.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
