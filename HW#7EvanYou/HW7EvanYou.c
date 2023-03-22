@@ -62,7 +62,7 @@ char get_first()
     int ch;
     
     ch = tolower(getchar());
-  //  clearLine();
+    clearLine();
     return ch;
 
 
