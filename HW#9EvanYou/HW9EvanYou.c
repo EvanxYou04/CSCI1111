@@ -1,17 +1,19 @@
 //HW8EvanYou
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NROW 3
+#define NCOL 5
+
+//function prototypes
+void clearBuffer(void);
+double dRand(void);
+double dAvg(double ar[], int size);
+double dMax(double ar[][], int row, int col);
 
 int main(void)
 {
-    int age, weight, height;
-    printf("Enter your age: ");
-    scanf("%d", &age);
-    printf("Enter your weight in pounds: ");
-    getc()
-    scanf("%d", &weight);
-    printf("Enter your height: ");
-    scanf("%d", &height);
-    printf("Done\n");
-
+    
     return 0;
 }
