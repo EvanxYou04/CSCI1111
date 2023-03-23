@@ -33,10 +33,14 @@ int main(void)
     for (int i = 0; i < NROW; i++)  //print average of each row 
     {
         printf("\nRow #%d Avg = %.3f ", i + 1, dAvg(array[i], NCOL));
-        sum += dAvg(array[i], NCOL);
+        for (int j = 0; j < NCOL; j++)
+        {
+           sum += array[i][j];
+        }
+        
     }
-    printf("\nApproximate Average of all rows = %.3f\n", sum);
-    printf("Max value of the 2d array = %.3f\n", dMax(array, NROW));
+    printf("\nAverage of all rows = %.3f\n", sum / (double)(NROW * NCOL));
+    printf("Max value of the 2D array = %.3f\n", dMax(array, NROW));
     return 0;
 }
 
@@ -110,14 +114,13 @@ double dMax(double ar[][NCOL], int row)
 
 /*  Output:
 HW#9EvanYou 
-Row #1: 6.829 7.364 4.405 0.366 4.421 
-Row #2: 4.678 6.542 9.203 8.552 9.078 
-Row #3: 9.207 5.940 3.142 0.418 2.655 
+Row #1: 6.873 7.922 8.463 2.566 3.901 
+Row #2: 7.418 1.403 1.211 2.991 1.399 
+Row #3: 8.324 0.254 1.477 5.059 3.644 
 
-Row #1 Avg = 4.677 
-Row #2 Avg = 7.610 
-Row #3 Avg = 4.273 
-Approximate Average of all rows = 16.560
-Max value of the 2d array = 9.207
-
+Row #1 Avg = 5.945 
+Row #2 Avg = 2.884 
+Row #3 Avg = 3.752 
+Average of all rows = 4.194
+Max value of the 2D array = 8.463
 */
