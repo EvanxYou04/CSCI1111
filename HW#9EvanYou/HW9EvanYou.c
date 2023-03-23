@@ -7,7 +7,6 @@
 #define NCOL 5
 
 //function prototypes
-void clearBuffer(void);
 void fillArray(double ar[][NCOL], int row);
 void printArray(double ar[][NCOL], int row);
 double dRand(void);
@@ -42,12 +41,6 @@ int main(void)
     printf("\nAverage of all rows = %.3f\n", sum / (double)(NROW * NCOL));
     printf("Max value of the 2D array = %.3f\n", dMax(array, NROW));
     return 0;
-}
-
-//clears input buffer
-void clearBuffer(void)
-{
-    while (getchar() != '\n') ;
 }
 
 //fill a 2d array with random numbers using dRand()
