@@ -33,7 +33,7 @@ int main(void)
     fillArray(array, NROW);
     for (int i = 0; i < NROW; i++)  //print output 
     {
-        printf("Row #%d: Avg = %.3f: ", i + 1, dAvg(array[i], NCOL));
+        printf("Row #%d: Avg = %8.3lf: ", i + 1, dAvg(array[i], NCOL));
         printRow(array[i], NCOL);
         for (int j = 0; j < NCOL; j++)
         {
@@ -49,8 +49,8 @@ int main(void)
 
     }
     
-    printf("\nAverage of all rows = %.3f\n", sum / (double)(NROW * NCOL));
-    printf("Max value of the 2D array = %.3f\n", dMax(array, NROW));
+    printf("\nAverage of all rows = %8.3lf\n", sum / (double)(NROW * NCOL));
+    printf("Max value of the 2D array = %8.3lf\n", dMax(array, NROW));
     return 0;
 }
 
@@ -71,7 +71,7 @@ void printRow(double ar[], int col)
 {
         for (int i = 0; i < col; i++) //row
     {
-        printf("%.3f ", ar[i]);   
+        printf("%8.3lf ", ar[i]);   
     }
     putchar('\n');
 }
