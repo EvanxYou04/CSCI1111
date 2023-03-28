@@ -3,25 +3,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NROW 3
-#define NCOL 5
+#define NROW 5
+#define NCOL 6
 
 //function prototypes
 void fillArray(double ar[][NCOL], int row);
 void printArray(double ar[][NCOL], int row);
+void dSelectionSort(double ar[], int col);
 double dRand(void);
 double dAvg(double ar[], int col);
 double dMax(double ar[][NCOL], int row);
 
 
-/*
-i. For each row of data print the following information on one line:
-1. The row number.
-2. The row’s data values.
-3. The average value for the row of data.
-ii. The average value of all the values—appropriately label the results.
-iii. The maximum value of all the values—appropriately label the results.
-*/
+
 int main(void)
 {
     printf("HW#9EvanYou \n");
@@ -67,11 +61,37 @@ void printArray(double ar[][NCOL], int row)
         putchar('\n');
     }
 }
-
+/*starts from first index , finds min value afer each run and swaps with current position*/
+void dSelectionSort(double ar[], int col)
+{
+    //travel one by one through the array
+    for (int i = 0; i < col - 1; i++)
+    {
+        
+        int min = i; //change index of where min value is
+        for (int j = i + 1; j < col ; j++)     
+        {
+            if (ar[j] < ar[min])
+            {
+            min = j;
+            }
+        //swap values
+            if (min != i)
+            {
+                double tmp = ar[i];
+                ar[i] = ar[min];
+                ar[min] = tmp;
+            }
+        
+      }
+      
+    }
+    
+}
 //returns a random number 
 double dRand(void)
 {
-    return rand() * 10.0 / RAND_MAX;
+    return rand() * (-10.0) / RAND_MAX;
 }
 
 //returns the average of an array
@@ -106,14 +126,5 @@ double dMax(double ar[][NCOL], int row)
 }
 
 /*  Output:
-HW#9EvanYou 
-Row #1: 6.873 7.922 8.463 2.566 3.901 
-Row #2: 7.418 1.403 1.211 2.991 1.399 
-Row #3: 8.324 0.254 1.477 5.059 3.644 
 
-Row #1 Avg = 5.945 
-Row #2 Avg = 2.884 
-Row #3 Avg = 3.752 
-Average of all rows = 4.194
-Max value of the 2D array = 8.463
 */
