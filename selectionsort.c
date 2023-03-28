@@ -11,6 +11,7 @@
 void dSelectionSort(double ar[], int col);
 void fillArray(double ar[][COL], int row);
 void printArray(double ar[][COL], int row);
+void swap(double * xp, double * yp);
 double dRand(void);
 
 
@@ -61,6 +62,14 @@ double dRand(void)
 return rand() % 10 + 1;
 }
 
+void swap(double * xp, double * yp)
+{
+    double tmp = *xp;
+    *xp = *yp;
+    *yp = tmp;
+
+
+}
 
 /*starts from first index , finds min value afer each run and swaps with current position*/
 void dSelectionSort(double ar[], int col)
@@ -78,9 +87,7 @@ void dSelectionSort(double ar[], int col)
         //swap values
             if (min != i)
             {
-                double tmp = ar[i];
-                ar[i] = ar[min];
-                ar[min] = tmp;
+                swap(&ar[min], &ar[i]);
             }
         
       }
