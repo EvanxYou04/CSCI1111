@@ -37,11 +37,12 @@ int main(void)
     {
         printf("%8d", c);
     }
-    printf("        Average\n");
+    printf("       Average\n");
     for (int r=0; r<NROW; r++) 
     {
-    printf("%5d ",r);
-        for (int c=0; c<NCOL; c++){
+    printf("%4d ",r);
+        for (int c=0; c<NCOL; c++)
+        {
         printf("%8.3lf ", array[r][c]);
         sum += array[r][c];
         }
