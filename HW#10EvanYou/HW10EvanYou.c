@@ -30,15 +30,22 @@ int main(void)
     printf("HW#10EvanYou \n");
     double array[NROW][NCOL], sum = 0;
     srand(time(NULL)); //seed psudeo random number generator with time
-    fillArray(array, NROW);
-    for (int i = 0; i < NROW; i++)  //print output 
+    fillArray(array, NROW); //Fill array with random number
+    //output results
+    printf("%5s ", "Row");
+    for (int c = 0; c <NCOL; c++)
     {
-        printf("Row #%d: Avg = %8.3lf: ", i + 1, dAvg(array[i], NCOL));
-        printRow(array[i], NCOL);
-        for (int j = 0; j < NCOL; j++)
-        {
-           sum += array[i][j];
-        }  
+        printf("%8d", c);
+    }
+    printf("        Average\n");
+    for (int r=0; r<NROW; r++) 
+    {
+    printf("%5d ",r);
+        for (int c=0; c<NCOL; c++){
+        printf("%8.3lf ", array[r][c]);
+        sum += array[r][c];
+        }
+    printf("%8.3lf\n", dAvg(array[r], NCOL));
     }
     printf("\nStorted Array:\n");
     //sort each row
@@ -46,7 +53,6 @@ int main(void)
     {
         dSelectionSort(array[i], NCOL);
         printRow(array[i], NCOL);
-
     }
     
     printf("\nAverage of all rows = %8.3lf\n", sum / (double)(NROW * NCOL));
