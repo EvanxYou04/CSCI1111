@@ -34,7 +34,7 @@ int main(void)
     printf("The index of each occurrence : ");
 
     for (i = 0; i < charFinder; i++) //terminate iterations at the amount of char found in line of string
-        printf("%d, ", loc[i]);
+        printf("%d  ", loc[i]);
     printf("\n");
     printf(PROMPT);
     }
@@ -50,18 +50,14 @@ void clearBuffer(void)
 // Returns an integer value giving the number of times ch was found in *pStr.
 int CharIsAt(char * pStr, char ch, int loc[], int mLoc)
 {
-    int count = 0, location = 0, max = mLoc - 1, index = 0;
-    while (*pStr != '\0') 
+    int count = 0, max = mLoc - 1;
+    char * pStart = pStr;
+    for (; *pStr != '\0'; pStr++)
     {
-        if(*pStr == ch) //check if the character is the target char
-        {
-            count++;
-            if (index <= max) loc[index] = location; //stores location
-            index++;
-        }
-        location++;
-        pStr++;
+        if (*pStr == ch)
+            if (count <= max) loc[count++] = pStr - pStart; //current index = currect location - start location
     }
+    
     return count;
 }
 

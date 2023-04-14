@@ -10,7 +10,7 @@ int CollectData(int nChan, int nPt, double Data[][nPt]);
 int main(void)
 {
     printf("Evan You HW#8 \n");
-    srand(time(NULL));
+    srand(time(NULL)); //seed randum number with time
 
     return 0;
 }
