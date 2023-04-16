@@ -115,5 +115,16 @@ int CollectData(int nChan, int nPt, double Data[][nPt])
     return 0;
 }
 /*output 
-
+Evan You HW#12 
+Enter number of input channels from 2 to 10 (enter -1 to exit): 2
+Please enter the number of data points: 
+a.2048      b.4096
+c.8192      d.quit
+a
+Number of channels : 2
+Number of data points: 2048
+Size of data: 8 bytes
+Address of memory allocated: 0x141808200
+Enter number of input channels from 2 to 10 (enter -1 to exit): -1
+Done.
 */
