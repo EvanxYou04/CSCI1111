@@ -29,7 +29,7 @@ int main(void)
     charFinder = CharIsAt(words, ch, loc, strlen(words));
     //output prompts
     printf("String output: %s\n", words);
-    printf("Character to search : %c\n", ch);
+    printf("Character to search : '%c'\n", ch);
     printf("The number of locations at which the character was found: %d\n", charFinder);
     printf("The index of each occurrence : ");
 
