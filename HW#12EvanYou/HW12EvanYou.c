@@ -17,11 +17,12 @@ int main(void)
 {
     printf("Evan You HW#12 \n");
     void * pData;
-    int channels, points;
+    int channels, points, *test;
     srand(time(NULL)); //seed randum number with time
     while(Setup(&channels, &points) != -1)
     {
         pData = malloc(channels * points * sizeof(int));
+        test = malloc(channels * points * sizeof(int));
         if(pData) 
         {
             CollectData(channels, points, pData);
@@ -29,6 +30,7 @@ int main(void)
             printf("Number of channels : %d\n", channels);
             printf("Number of data points: %d\n", points);
             printf("Size of data: %lu bytes\n", sizeof(pData));
+            printf("Size of test: %lu bytes\n", sizeof(test));
             printf("Address of memory allocated: %p\n",pData);
             free(pData);
         }
