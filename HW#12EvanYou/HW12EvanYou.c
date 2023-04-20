@@ -17,22 +17,27 @@ int main(void)
 {
     printf("Evan You HW#12 \n");
     void * pData;
-    int channels, points, *test;
+    int channels, points;
+    long memSize;
     srand(time(NULL)); //seed randum number with time
     while(Setup(&channels, &points) != -1)
     {
-        pData = malloc(channels * points * sizeof(int));
-        test = malloc(channels * points * sizeof(int));
+        memSize = sizeof(double) * channels * points;
+        pData = malloc(memSize);
         if(pData) 
         {
             CollectData(channels, points, pData);
             //output prompts
             printf("Number of channels : %d\n", channels);
             printf("Number of data points: %d\n", points);
-            printf("Size of data: %lu bytes\n", sizeof(pData));
-            printf("Size of test: %lu bytes\n", sizeof(test));
+            printf("Size of data: %ld bytes\n", memSize);
             printf("Address of memory allocated: %p\n",pData);
             free(pData);
+        }
+        else
+        {
+            puts("\nNot enough memory available, please select fewer\n"
+   			"channels and/or fewer data points.");
         }
         
     }
@@ -108,12 +113,8 @@ int CollectData(int nChan, int nPt, double Data[][nPt])
 {
     int i, j;
     for (i = 0; i < nChan; i++)
-    {
         for (j = 0; j<nPt; j++)
-        {
             Data[i][j] = dRand(); 
-        }
-    }
     return 0;
 }
 /*output 
