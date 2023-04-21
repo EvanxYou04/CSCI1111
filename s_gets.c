@@ -16,14 +16,13 @@ int main(void){
 char * s_gets(char * st, int n)
 {
     char * ret_val;
-    int i = 0;
+    char * pc = st;
     ret_val = fgets(st, n, stdin);
     if(ret_val)
     {
-        while (st[i] != '\0' && st[i] != '\n')
-            i++;
-        if (st[i] == '\n')
-            st[i] = '\0';
+        while (*pc != '\0' && *pc != '\n') pc++;
+        if (*pc == '\n')
+            *pc = '\0';
         else
             while(getchar() != '\n') ;  
     }

@@ -16,14 +16,13 @@ int CollectData(int nChan, int nPt, double Data[][nPt]);
 int main(void)
 {
     printf("Evan You HW#12 \n");
-    void * pData;
     int channels, points;
     long memSize;
     srand(time(NULL)); //seed randum number with time
     while(Setup(&channels, &points) != -1)
     {
         memSize = sizeof(double) * channels * points;
-        pData = malloc(memSize);
+        double (*pData)[points] = (double (*)[points]) malloc(memSize);
         if(pData) 
         {
             CollectData(channels, points, pData);
@@ -110,11 +109,11 @@ int Setup(int *pnChan, int *pnPt)
 
 //puts random values into the arrays
 int CollectData(int nChan, int nPt, double Data[][nPt])
-{
-    int i, j;
-    for (i = 0; i < nChan; i++)
-        for (j = 0; j<nPt; j++)
-            Data[i][j] = dRand(); 
+{ 
+    double *pi = (double *) Data;
+    double *piend = pi + nChan*nPt;
+    while (pi < piend)
+        *pi++ = dRand();
     return 0;
 }
 /*output 
