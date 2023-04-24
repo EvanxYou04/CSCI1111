@@ -26,7 +26,7 @@ int main(void) {
 	// Measurement loop, exit when Setup() returns -1 or a nonzero value.   
 	while (Setup(&nChan,&nPt)==0) {
    	MemSize = sizeof(double)*nChan*nPt;
-	double AvgArr[nPt];
+	double AvgArr[nChan];
    	double (*pData)[nPt] = (double (*)[nPt]) malloc(MemSize);  // Type cast the pointer returned
    	if (pData==NULL)
    		puts("\nNot enough memory available, please select fewer\n"
@@ -117,7 +117,7 @@ int WriteBinary(int nChan, int nPt, double Data[][nPt], const char * pfname)
 		//Write into file
 		fwrite(&nChan, sizeof(int), 1, fp);
 		fwrite(&nPt, sizeof(int), 1, fp);
-		fwrite(Data, sizeof(double) * nChan * nPt, 1, fp);
+		fwrite(Data, sizeof(double) * nPt, nChan, fp);
 		fclose(fp); //close file 
 	}
 	else // if file == NULL
@@ -141,7 +141,7 @@ int ReadBinary(int nChan, int nPt, double Data[][nPt], const char * pfname)
 		fread(&pts, sizeof(pts), 1, fp); // stores points 
 		if (nChan== ch && pts == nPt) puts("Success in reading nChan and nPt\n"); //check if file is same as current 
 		else printf("fail. nChan: %d\n points: %d \n",ch, pts);
-		fread(Data, sizeof(double) * nChan * nPt, 1, fp);
+		fread(Data, sizeof(double) * pts, ch, fp);
 		fclose(fp); //close file 
 	}
 	else
@@ -155,19 +155,15 @@ int ReadBinary(int nChan, int nPt, double Data[][nPt], const char * pfname)
 //stores average of each channel in data into avg array
 int AvgData(int nChan, int nPt, double Data[][nPt], double Avg[])
 {
-	int r,c;
-	double sum = 0;
-	for (r=0; r<nChan; r++)
+	int r;
+	double sum, *pd, *pd2;
+	for (r=0;r<nChan;r++)
 	{
-		sum = 0; //reset sum after every pas
-		for (c=0; c<nPt; c++)
-		{
-			sum += Data[r][c];
-		}
-		//printf("Sum: %f\n",sum); 		
-		Avg[r] = (sum / ((double) nPt)); //store into avg array
+		for(pd=Data[r], pd2=Data[r+1], sum = 0.0; pd<pd2;)
+			sum += *pd++;
+		Avg[r] = sum/nPt;
 	}
-    return 0;
+	return 0;
 }
 
 //print result of avg array
