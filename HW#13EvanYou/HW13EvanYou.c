@@ -178,4 +178,42 @@ int Results(int nChan, double Avg[])
 	return 0;
 }
 
+/*
+Output:
+HW #13:  Evan You
 
+Enter number of input channels [2-10] (0 to quit): 2
+Select number of data points:
+  2) 2048   4) 4096  8) 8192  q) Quit
+2
+Number of Channels: 2
+Number of points per channel: 2048
+Memory allocated for data the data: 32768 bytes
+Data memory address: 0x11e808200
+
+Success in reading nChan and nPt
+
+Channel #0 Avg:4.9806
+Channel #1 Avg:5.0194
+Enter number of input channels [2-10] (0 to quit): 5
+Select number of data points:
+  2) 2048   4) 4096  8) 8192  q) Quit
+4
+Number of Channels: 5
+Number of points per channel: 4096
+Memory allocated for data the data: 163840 bytes
+Data memory address: 0x120008000
+
+Success in reading nChan and nPt
+
+Channel #0 Avg:4.9801
+Channel #1 Avg:5.0281
+Channel #2 Avg:5.0407
+Channel #3 Avg:5.0267
+Channel #4 Avg:4.9430
+Enter number of input channels [2-10] (0 to quit): 0
+
+
+
+
+*/
