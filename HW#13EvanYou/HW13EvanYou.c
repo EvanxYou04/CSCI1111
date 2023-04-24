@@ -164,7 +164,7 @@ int AvgData(int nChan, int nPt, double Data[][nPt], double Avg[])
 		{
 			sum += Data[r][c];
 		}
-		printf("Sum: %f\n",sum);
+		//printf("Sum: %f\n",sum); 		
 		Avg[r] = (sum / ((double) nPt)); //store into avg array
 	}
     return 0;
