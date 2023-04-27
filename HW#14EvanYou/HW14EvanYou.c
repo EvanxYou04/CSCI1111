@@ -31,8 +31,10 @@ int main(void)
     srand(time(NULL));
 
     //create char 2d array of first and last names
-    char Firstnames[][LEN] = {"Adam", "Alexander", "Bill", "Bob", "Carrie" , "Steven", "Ken", "Evan", "Mason", "Preston"};
-    char Lastnames[][LEN] = {"Smith", "Johnson", "Anderson", "Miller", "Davidson" , "Thomas", "Taylor", "Young", "Jones", "Allen"};
+    char Firstnames[][LEN] = {"Adam", "Alexander", "Bill", "Bob", "Carrie" , 
+                             "Steven", "Ken", "Evan", "Mason", "Preston"};
+    char Lastnames[][LEN] = {"Smith", "Johnson", "Anderson", "Miller", "Davidson" ,
+                             "Thomas", "Taylor", "Young", "Jones", "Allen"};
 
     //determine number of elements in array of names
     int f = sizeof(Firstnames)/sizeof(Firstnames[0]);
