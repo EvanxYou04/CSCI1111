@@ -74,3 +74,13 @@ int generateSSN()
     int lower = 100000000;
     return rand() % (upper - lower + 1 ) + lower;
 }
+
+/*
+Output:
+Evan You HW14
+287949473 -- Thomas, Steven
+215129835 -- Davidson, Mason
+249112703 -- Anderson, Bill
+433927222 -- Taylor, Carrie
+357831604 -- Smith, Preston
+*/
