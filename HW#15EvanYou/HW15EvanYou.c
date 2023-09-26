@@ -19,31 +19,37 @@ typedef struct Book Item;
 typedef struct Node 
 {
     Item item; 
-    struct Node *pnext;
+    struct Node *pNext;
 }NODE;
 
-typedef NODE *PNODE; //pointer to a node
+typedef NODE *pNODE; //pointer to a node
 
-PNODE appendNode(PNODE *pCur, Item *pItem); //appends a node
-PNODE appendText(PNODE *pHead); //
-PNODE lastNode(PNODE *pCur);
-int amountRecords(PNODE *phead); //returns the number of items read. 
-int menu(void);
+pNODE appendNode(pNODE *pCur, Item *pItem); //appends a node
+pNODE appendText(pNODE *pHead); //appends multiple nodes from text file
+pNODE lastNode(pNODE *pCur); //returns pointer to last node in a list
+pNODE appendText(pNODE *pHead); //appends multiple nodes from text file
+pNODE getLastNode(pNODE *pCur); //returns pointer to last node in a list
+pNODE GetRecordNum(pNODE *pHead, int n, Item *pItem); //prompts for record #, and prints record.
+int amountRecords(pNODE *phead); //returns the number of items read.
+int menu(void) //prompts for and returns selection.
 void clearLine(void); //clear \n
-void initalize(PNODE *phead);
-void printRecord(PNODE *pHead);
-void writeBin(PNODE *pHead, char Filename[], int size); //write data to binary file
+void initList(pNODE *phead);
+void printRecord(pNODE *pHead);
+void writeBin(pNODE *pHead, char Filename[], int size); //write data to binary file
+void ListAllRecords(pNODE *pHead); //prints all the records in the list
+
+FILE * UseFileWr(char *pFilename, int nLen); //opens file for writing
 
 
 int main(void)
 {
     printf("HW15 Evan You.\n");
-    PNODE plist = NULL;
+    pNODE head = NULL;
     char fileName[FSIZE] = BINARY;
     int ch = 0;
     while ((ch=Menu())!='q') {
 		switch (ch) {
-			case 'i': initalize(&pList);  // creates a linked list 
+			case 'i': initList(&pList);  // creates a linked list 
 						break;
 			case 'a': appendText(&pList);  // Sets pList if it was NULL,
 						break;
@@ -54,11 +60,29 @@ int main(void)
 			case 'w': writeBin(&pList,fileName,FSIZE);	// Writes data to a binary file.	 
 		}
 	}
-
-
+	initList(&pList);
     return 0;
 }
 
+pNODE appendNode(pNODE *pCur, Item *pItem)
+{
+	pNODE pNew;
+	pNew = malloc(sizeof(NODE));
+	if (pNew)
+	{
+		pNew->item = *pItem;
+		fi (*pCur)
+		{
+			pNew->pNext = (*pCur)->pNext;
+			(*pCur)->pNext = pNew;
+		}
+		else
+		{
+			pNew->pNext = NULL;
+		}
+	}
+	return pNew;
+}
 
 
 
