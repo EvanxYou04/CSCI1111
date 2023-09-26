@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define DEBUG 1
 #define TSIZE 100 //title string
 #define ASIZE 50  // author string
 #define YSIZE 7   // year string
@@ -82,6 +83,39 @@ pNODE appendNode(pNODE *pCur, Item *pItem)
 		}
 	}
 	return pNew;
+}
+
+pNODE appendText(pNODE *pHead)
+{
+	Item item;
+	FILE *fp;
+	pNODE pCur = getLastNode(pHead);
+	int n = 0;
+	fp = fopen(TXT,"r");
+	if (fp == NULL)
+	{
+		printf("Error opening file.\n");
+		exit(1);
+	}
+	while (fscanf(fp,"%s %s %s",item.title,item.author,item.year) == 3)
+	{
+		#ifdef DEBUG
+			printf("%s  %s  %s",item.title,item.author,item.year);
+		#endif
+		appendNode(&pHead,&item);
+		n++;
+	}
+	fclose(fp);
+	return n;
+}
+
+pNODE getLastNode(pNODE *pCur)
+{
+	while (*pCur)
+	{
+		pCur = &((*pCur)->pNext);
+	}
+	return pCur;
 }
 
 
